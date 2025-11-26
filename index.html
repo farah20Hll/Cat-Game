@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>Subway Cat Run — HTML5 Canvas Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+    <div id="game" role="application" aria-label="Subway Cat Run">
+        <canvas id="canvas" width="1280" height="720"></canvas>
+
+        <div class="ui">
+            <div class="chip">⭐ <span id="ui-score">0</span></div>
+            <div class="chip">❤️ <span id="ui-lives">3</span></div>
+            <div class="chip">🎯 <span id="ui-level">1</span></div>
+            <div class="chip">⚡ <span id="ui-speed">1.0x</span></div>
+        </div>
+
+        <div id="controls">
+            <button id="muteBtn" class="btn small">🔊</button>
+            <button id="pauseBtn" class="btn small">⏸</button>
+        </div>
+
+        <!-- Start overlay -->
+        <div id="startOverlay" class="overlay">
+            <div class="title">🐱 Subway Cat Run</div>
+            <div class="subtitle">Help the cute cat navigate through the subway! Avoid obstacles, collect fish and power-ups, and see how far you can go!</div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="highScore">0</div>
+                    <div class="stat-label">High Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="gamesPlayed">0</div>
+                    <div class="stat-label">Games Played</div>
+                </div>
+            </div>
+            
+            <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+                <button id="startBtn" class="btn" style="padding:12px 30px;font-size:18px;">🎮 Start Game</button>
+                <button id="howBtn" class="btn" style="background:#ffd166;color:#5b3a2b;">📖 How to Play</button>
+            </div>
+        </div>
+
+        <!-- Pause overlay -->
+        <div id="pauseOverlay" class="overlay hidden">
+            <div class="title">⏸ Game Paused</div>
+            <div class="subtitle">Take a break! Ready to continue your subway adventure?</div>
+            <div style="display:flex;gap:12px;">
+                <button id="resumeBtn" class="btn">▶️ Resume</button>
+                <button id="restartBtn" class="btn" style="background:#ffd166;color:#5b3a2b;">🔄 Restart</button>
+            </div>
+        </div>
+
+        <!-- Gameover overlay -->
+        <div id="gameOverOverlay" class="overlay hidden">
+            <div class="title">🎮 Game Over</div>
+            <div class="subtitle">Great run! The subway can be tricky, but you're getting better!</div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="finalScore">0</div>
+                    <div class="stat-label">Final Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="finalLevel">1</div>
+                    <div class="stat-label">Level Reached</div>
+                </div>
+            </div>
+            
+            <div style="display:flex;gap:12px;">
+                <button id="tryAgainBtn" class="btn">🔄 Play Again</button>
+                <button id="menuBtn" class="btn" style="background:#ffd166;color:#5b3a2b;">🏠 Main Menu</button>
+            </div>
+        </div>
+
+        <!-- Mobile touch controls -->
+        <div class="touch-controls" id="touchControls">
+            <button class="touch-btn" id="leftBtn">◀︎</button>
+            <button class="touch-btn primary" id="jumpBtn">⬆︎</button>
+            <button class="touch-btn" id="rightBtn">▶︎</button>
+        </div>
+    </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
